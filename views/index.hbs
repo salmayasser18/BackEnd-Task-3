@@ -1,0 +1,38 @@
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>ThirdTask</title>
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+
+    <body>
+        <form action="/submit" method="POST">
+            <p>enter country name:</p>
+            <input type="text" name="inputTextBox" />
+            <p class="output">country name: <span class="result" style="display:none;">{{country}}</span></p>
+            <p class="output">city name: <span class="result" style="display:none;">{{city}}</span></p>
+            <p class="output">longitude: <span class="result" style="display:none;">{{longitude}}</span></p>
+            <p class="output">latitude: <span class="result" style="display:none;">{{latitude}}</span></p>
+            <p class="output">weather: <span class="result" style="display:none;">{{weather}}</span></p>
+            <button type="submit" id="sendButton">Send</button>
+        </form>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                showResults();
+            });
+
+            function showResults(){
+                const resultSpans = document.querySelectorAll(".result");
+                
+                resultSpans.forEach(function(span, index) {
+                    setTimeout(function() {
+                        span.style.display = "inline";
+                        span.style.opacity = 1;
+                    }, 500 * index);
+                });
+            }
+        </script>
+    </body>
+</html>
